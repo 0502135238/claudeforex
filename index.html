@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Forex - Master Forex Trading & Boost Your Profits</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2962ff;
+            --primary-dark: #0039cb;
+            --secondary: #00c853;
+            --dark: #263238;
+            --light: #f5f7fa;
+            --accent: #ff6d00;
+            --text: #455a64;
+            --text-light: #90a4ae;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #e65100;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        #hero {
+            padding-top: 150px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .chart-overlay {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 300px;
+            height: 200px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Features Section */
+        #features {
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Course Section */
+        #courses {
+            background: linear-gradient(135deg, #2962ff 0%, #0039cb 100%);
+            color: white;
+        }
+        
+        #courses h2 {
+            color: white;
+        }
+        
+        #courses h2:after {
+            background: var(--accent);
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-image {
+            height: 200px;
+            background: linear-gradient(45deg, #ff6d00, #ffab40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .course-content {
+            padding: 30px;
+        }
+        
+        .course-content h3 {
+            color: var(--dark);
+        }
+        
+        .course-content p {
+            color: var(--text);
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonials-container {
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        /* CTA Section */
+        #cta {
+            background: linear-gradient(135deg, #ff6d00 0%, #ffab40 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        #cta h2 {
+            color: white;
+        }
+        
+        #cta h2:after {
+            background: var(--primary);
+        }
+        
+        #cta .btn {
+            background: white;
+            color: var(--accent);
+            margin-top: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Chart Animation */
+        .chart-container {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .chart-area {
+            fill: url(#chartGradient);
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            .chart-overlay {
+                right: 0;
+            }
+            
+            .footer-content {
+                flex-wrap: wrap;
+            }
+            
+            .footer-column {
+                flex: 0 0 50%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+            
+            .footer-column {
+                flex: 0 0 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .chart-overlay {
+                width: 250px;
+                height: 180px;
+                bottom: -20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Claude<span>Forex</span></a>
+                <button class="mobile-menu-btn">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#features">Benefits</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#testimonials">Success Stories</a></li>
+                    <li><a href="#cta" class="btn btn-accent">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Trading & <span class="text-primary">Boost Your Profits</span></h1>
+                    <p>Are you struggling to sell more eBooks and get people to buy your forex course? Claude Forex provides a highly profitable and results-driven forex trading learning system designed to boost your earnings, and turn your least money into high profits.</p>
+                    <a href="#cta" class="btn">Enroll Now</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Forex Trading">
+                    <div class="chart-overlay">
+                        <svg class="chart-container" viewBox="0 0 300 200">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:var(--primary);stop-opacity:0.5" />
+                                    <stop offset="100%" style="stop-color:var(--primary);stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            <path class="chart-line" d="M0,200 L30,180 L60,150 L90,120 L120,140 L150,100 L180,70 L210,90 L240,60 L270,30 L300,50" />
+                            <path class="chart-area" d="M0,200 L30,180 L60,150 L90,120 L120,140 L150,100 L180,70 L210,90 L240,60 L270,30 L300,50 L300,200 Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2 class="text-center">Why Choose Our Forex Courses</h2>
+            <p class="text-center">Our proven system helps traders at all levels achieve consistent profitability</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Proven Strategies</h3>
+                    <p>Learn battle-tested trading strategies that work in all market conditions, developed from 10+ years of trading experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Profit-Focused</h3>
+                    <p>Our courses focus exclusively on what actually makes money in the markets, cutting out all the fluff and theory.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Step-by-Step Training</h3>
+                    <p>From complete beginner to advanced trader, our structured learning path takes you through every essential concept.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Continuous Updates</h3>
+                    <p>Get free lifetime updates as we refine our strategies and adapt to changing market conditions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍💻</div>
+                    <h3>Community Support</h3>
+                    <p>Join our exclusive trader community for ongoing support, trade ideas, and networking.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access our training materials anytime, anywhere with our mobile-optimized platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <h2 class="text-center">Our Premium Courses</h2>
+            <p class="text-center">Choose the learning path that matches your trading goals</p>
+            
+            <div class="course-card">
+                <div class="course-image">
+                    Forex Foundations
+                </div>
+                <div class="course-content">
+                    <h3>Beginner Forex Mastery</h3>
+                    <p>Perfect for those just starting out. Learn the fundamentals of forex trading, how markets work, and develop your first profitable strategy.</p>
+                    <ul style="margin: 20px 0 20px 20px;">
+                        <li>8 comprehensive modules</li>
+                        <li>12 practical exercises</li>
+                        <li>5 proven entry strategies</li>
+                        <li>Risk management framework</li>
+                    </ul>
+                    <div class="price">$297</div>
+                    <a href="#cta" class="btn">Enroll Now</a>
+                </div>
+            </div>
+            
+            <div class="course-card" style="margin-top: 30px;">
+                <div class="course-image" style="background: linear-gradient(45deg, #2962ff, #448aff);">
+                    Advanced Forex Strategies
+                </div>
+                <div class="course-content">
+                    <h3>Advanced Forex Tactics</h3>
+                    <p>For traders ready to take their skills to the next level. Master advanced technical analysis, price action, and high-probability setups.</p>
+                    <ul style="margin: 20px 0 20px 20px;">
+                        <li>Advanced technical analysis</li>
+                        <li>Institutional trading concepts</li>
+                        <li>High-probability setups</li>
+                        <li>Trade psychology mastery</li>
+                    </ul>
+                    <div class="price">$497</div>
+                    <a href="#cta" class="btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="text-center">Trader Success Stories</h2>
+            <p class="text-center">Don't just take our word for it - hear from our students</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Before Claude's course, I was losing money consistently. After implementing his strategies, I turned my $500 account into $3,200 in just 3 months. The risk management techniques alone were worth the price!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div>
+                                <h4>John D.</h4>
+                                <p>Forex Trader, 2 years experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I've taken many forex courses before, but none broke down the concepts as clearly as Claude Forex. The step-by-step approach helped me finally understand price action trading. My win rate improved from 45% to 68%."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AS</div>
+                            <div>
+                                <h4>Ama S.</h4>
+                                <p>Part-time Trader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The community support is incredible. Having access to Claude and other successful traders accelerated my learning curve dramatically. I went from breaking even to making consistent profits within weeks."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MK</div>
+                            <div>
+                                <h4>Michael K.</h4>
+                                <p>Full-time Trader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="container">
+            <h2 class="text-center">Ready to Transform Your Trading?</h2>
+            <p class="text-center">Join hundreds of traders who've boosted their profits with our proven system</p>
+            <div class="text-center">
+                <a href="https://wa.me/2330502135238?text=Hi%20Claude,%20I'm%20interested%20in%20your%20course" class="btn">Enroll Today - Limited Spots</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Claude Forex</h3>
+                    <p>Providing world-class forex education since 2015. Our mission is to help traders achieve financial freedom through disciplined, profitable trading.</p>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>YT</span></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Benefits</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#cta">Get Started</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email: info@claudeforex.com</li>
+                        <li>Phone: +233 050 213 5238</li>
+                        <li>Accra, Ghana</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Claude Forex. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/2330502135238?text=Hi%20Claude,%20I'm%20interested%20in%20your%20course" class="whatsapp-btn" target="_blank">💬</a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .course-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.feature-card, .course-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        // Run animation check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Run once on page load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Animated chart
+        const chartPath = document.querySelector('.chart-line');
+        const chartArea = document.querySelector('.chart-area');
+        const pathLength = chartPath.getTotalLength();
+        
+        // Set up the chart animation
+        chartPath.style.strokeDasharray = pathLength;
+        chartPath.style.strokeDashoffset = pathLength;
+        
+        const animateChart = () => {
+            const scrollPosition = window.scrollY;
+            const chartPosition = document.querySelector('.chart-overlay').offsetTop;
+            const windowHeight = window.innerHeight;
+            
+            if (scrollPosition > chartPosition - windowHeight + 200) {
+                chartPath.style.strokeDashoffset = 0;
+                chartArea.style.opacity = 0.8;
+            }
+        };
+        
+        window.addEventListener('scroll', animateChart);
+        window.addEventListener('load', animateChart);
+    </script>
+</body>
+</html>
